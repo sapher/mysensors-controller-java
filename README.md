@@ -1,6 +1,8 @@
 # mysensors-controller-java
 Simple **headless** mysensors controller library.
 
+**Work in progress**, feel free to get on the boat :).
+
 ## Purpose
 
 This is personal project that I wanted to share.
@@ -10,6 +12,39 @@ It was made to create a quick prototype with the help of an RaspberryPI & MySens
 Headless mean there's no UI, it's really just a library, some kind of a wrapper.
 
 ## Installation
+
+## MySensors
+
+First of all you need by building a serial RaspberryPi Gateway by following this [link](https://www.mysensors.org/build/raspberry).
+
+*Side note* : It's not mandatory but using the IRQ pin bring better performance.
+
+**Download**
+
+```
+git clone https://github.com/mysensors/MySensors.git --branch master
+cd MySensors
+```
+
+This pinout is working for the pi3.
+
+```
+CS  = 24
+CE  = 22
+IRQ = 13
+```
+
+**Compile**
+
+```
+./configure --my-debug=enable --my-gateway=serial --my-serial-pty=/dev/ttyGateway --my-serial-is-pty --my-rf24-ce-pin=22 --my-rf24-cs-pin=24 --my-rf24-irq-pin=13 --my-transport=nrf24 --my-rf24-pa-level=RF24_PA_MAX
+```
+
+**Install**
+
+```
+sudo make && make install
+```
 
 ## Usage
 
